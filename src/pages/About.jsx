@@ -262,20 +262,20 @@ const About = () => {
       {/* ============================================ */}
       {/* HERO SECTION */}
       {/* ============================================ */}
-      <section className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24">
+      <section className="relative pt-28 md:pt-32 pb-16 md:pb-20 px-4 md:px-12 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
           <FadeIn>
-            <div className="mb-6">
-              <span className="inline-block px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-xs text-amber-500 tracking-widest">
+            <div className="mb-4 md:mb-6">
+              <span className="inline-block px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-[10px] md:text-xs text-amber-500 tracking-widest">
                 SYSTEM.ABOUT
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-space font-light tracking-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-space font-light tracking-tight mb-4 md:mb-6">
               <span className="bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
                 Studio_Specs
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-stone-400/70 max-w-3xl leading-relaxed font-light">
+            <p className="text-lg md:text-xl lg:text-2xl text-stone-400/70 max-w-3xl leading-relaxed font-light">
               Nova is a precision software studio. We architect bespoke systems for companies that refuse to compromise on quality.
             </p>
           </FadeIn>
@@ -285,7 +285,7 @@ const About = () => {
       {/* ============================================ */}
       {/* SPECIFICATIONS GRID */}
       {/* ============================================ */}
-      <section className="relative py-16 px-6 md:px-12 lg:px-24 bg-[#080808]">
+      <section className="relative py-12 md:py-16 px-4 md:px-12 lg:px-24 bg-[#080808]">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {specs.map((spec, index) => (
@@ -298,7 +298,7 @@ const About = () => {
       {/* ============================================ */}
       {/* MANIFESTO SECTION */}
       {/* ============================================ */}
-      <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-black">
+      <section className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-black">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left - Manifesto Text */}
@@ -343,18 +343,18 @@ const About = () => {
 
             {/* Right - Terminal Visual */}
             <FadeIn delay={0.3}>
-              <div className="relative bg-[#0d0d0d] border border-[#333] rounded-[4px] overflow-hidden font-mono text-sm">
-                <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1a1a] border-b border-[#333]">
+              <div className="relative bg-[#0d0d0d] border border-[#333] rounded-[4px] overflow-hidden font-mono text-xs md:text-sm">
+                <div className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 bg-[#1a1a1a] border-b border-[#333]">
                   <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ff5f57]" />
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#febc2e]" />
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#28c840]" />
                   </div>
-                  <span className="text-stone-500 text-xs ml-2">studio_profile.yaml</span>
+                  <span className="text-stone-500 text-[10px] md:text-xs ml-2">studio_profile.yaml</span>
                 </div>
-                <div className="p-6 text-emerald-400/90 whitespace-pre leading-relaxed">
-{`# Nova Studio Configuration
-# Last updated: 2026-01-14
+                <div className="p-4 md:p-6 text-emerald-400/90 whitespace-pre leading-relaxed overflow-x-auto text-[11px] md:text-sm">
+{`# Nova Studio Config
+# Updated: 2026-01-14
 
 studio:
   name: Nova
@@ -364,21 +364,21 @@ studio:
 
 team:
   size: small_by_design
-  model: embedded_collaboration
-  avg_tenure: 4+ years industry
+  model: embedded
+  tenure: 4+ years
 
 engagement:
-  project_duration: 3-6 months
-  communication: async_first
+  duration: 3-6 months
+  comms: async_first
   meetings: weekly_sync
 
 principles:
-  - no_unnecessary_abstractions
-  - type_safety_everywhere
-  - performance_by_default
-  - documentation_as_code
+  - no_bloat
+  - type_safety
+  - performance_first
+  - docs_as_code
 
-current_status: accepting_q1_2026`}
+status: accepting_q1_2026`}
                 </div>
               </div>
             </FadeIn>
@@ -389,7 +389,7 @@ current_status: accepting_q1_2026`}
       {/* ============================================ */}
       {/* PRINCIPLES SECTION */}
       {/* ============================================ */}
-      <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#050505]">
+      <section className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-[#050505]">
         <div className="max-w-screen-2xl mx-auto">
           <FadeIn>
             <div className="mb-12">
@@ -415,7 +415,7 @@ current_status: accepting_q1_2026`}
       {/* ============================================ */}
       {/* TIMELINE SECTION */}
       {/* ============================================ */}
-      <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-black">
+      <section className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-black">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
@@ -467,22 +467,22 @@ current_status: accepting_q1_2026`}
                       <span className="font-geist-mono text-xs text-stone-500">Real-time Stats</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-2 gap-4 md:gap-8">
                       <div>
-                        <div className="font-geist-mono text-4xl font-light text-white mb-1">24</div>
-                        <div className="font-geist-mono text-xs text-stone-500">Projects Delivered</div>
+                        <div className="font-geist-mono text-2xl md:text-4xl font-light text-white mb-1">24</div>
+                        <div className="font-geist-mono text-[10px] md:text-xs text-stone-500">Projects Delivered</div>
                       </div>
                       <div>
-                        <div className="font-geist-mono text-4xl font-light text-white mb-1">12</div>
-                        <div className="font-geist-mono text-xs text-stone-500">Countries Served</div>
+                        <div className="font-geist-mono text-2xl md:text-4xl font-light text-white mb-1">12</div>
+                        <div className="font-geist-mono text-[10px] md:text-xs text-stone-500">Countries Served</div>
                       </div>
                       <div>
-                        <div className="font-geist-mono text-4xl font-light text-white mb-1">99.9%</div>
-                        <div className="font-geist-mono text-xs text-stone-500">Uptime Delivered</div>
+                        <div className="font-geist-mono text-2xl md:text-4xl font-light text-white mb-1">99.9%</div>
+                        <div className="font-geist-mono text-[10px] md:text-xs text-stone-500">Uptime Delivered</div>
                       </div>
                       <div>
-                        <div className="font-geist-mono text-4xl font-light text-white mb-1">&lt;50ms</div>
-                        <div className="font-geist-mono text-xs text-stone-500">Avg. API Latency</div>
+                        <div className="font-geist-mono text-2xl md:text-4xl font-light text-white mb-1">&lt;50ms</div>
+                        <div className="font-geist-mono text-[10px] md:text-xs text-stone-500">Avg. API Latency</div>
                       </div>
                     </div>
 
@@ -507,7 +507,7 @@ current_status: accepting_q1_2026`}
       {/* ============================================ */}
       {/* TECH STACK SECTION */}
       {/* ============================================ */}
-      <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#080808]">
+      <section className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-[#080808]">
         <div className="max-w-screen-2xl mx-auto">
           <FadeIn>
             <div className="mb-12">
@@ -547,13 +547,13 @@ current_status: accepting_q1_2026`}
       {/* ============================================ */}
       {/* CTA SECTION */}
       {/* ============================================ */}
-      <section className="relative py-28 px-6 md:px-12 lg:px-24 bg-black">
+      <section className="relative py-20 md:py-28 px-4 md:px-12 lg:px-24 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <span className="inline-block px-3 py-1.5 mb-6 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-xs text-amber-500 tracking-widest">
               CONNECT.INIT
             </span>
-            <h2 className="text-4xl md:text-5xl font-space font-light tracking-tight text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-space font-light tracking-tight text-white mb-6">
               Interested in Working Together?
             </h2>
             <p className="text-lg text-stone-400/70 mb-12 max-w-2xl mx-auto">
@@ -576,12 +576,16 @@ current_status: accepting_q1_2026`}
             </div>
 
             {/* Contact Info */}
-            <div className="mt-12 font-geist-mono text-sm text-stone-500">
+            <div className="mt-12 font-geist-mono text-xs md:text-sm text-stone-500">
               <span className="text-stone-600">// </span>
               <span>hello@nova.studio</span>
-              <span className="mx-3 text-stone-700">|</span>
+              <span className="hidden sm:inline mx-3 text-stone-700">|</span>
+              <br className="sm:hidden" />
+              <span className="sm:hidden text-stone-600">// </span>
               <span>Lahore, Pakistan</span>
-              <span className="mx-3 text-stone-700">|</span>
+              <span className="hidden sm:inline mx-3 text-stone-700">|</span>
+              <br className="sm:hidden" />
+              <span className="sm:hidden text-stone-600">// </span>
               <span className="text-emerald-500">Available Q1 2026</span>
             </div>
           </FadeIn>

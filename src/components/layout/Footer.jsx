@@ -4,9 +4,9 @@ import { Mail, MapPin, Clock } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-white/[0.05] px-6 md:px-12 lg:px-24 py-12">
+    <footer className="bg-black border-t border-white/[0.05] px-4 md:px-12 lg:px-24 py-10 md:py-12">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-10">
           {/* Brand */}
           <div>
             <h3 className="text-lg font-geist-mono font-medium text-amber-500 mb-3">NOVA.STUDIO</h3>

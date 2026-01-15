@@ -95,7 +95,7 @@ const Work = () => {
           </div>
 
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-space font-light tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space font-light tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -111,10 +111,10 @@ const Work = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-xl md:text-2xl text-stone-300 leading-relaxed mb-4">
+            <p className="text-lg md:text-xl lg:text-2xl text-stone-300 leading-relaxed mb-3 md:mb-4">
               A glimpse into some of our <span className="text-amber-400 font-medium">masterpieces</span>—hand-picked from dozens of successful projects we've delivered.
             </p>
-            <p className="text-base text-stone-500 leading-relaxed">
+            <p className="text-sm md:text-base text-stone-500 leading-relaxed">
               What you see here is just the tip of the iceberg. From stealth startups to enterprise clients, we've built solutions across industries—these are the ones we can <span className="text-stone-400">share publicly</span>.
             </p>
           </motion.div>
@@ -146,7 +146,7 @@ const Work = () => {
             >
               <div className="relative grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-0">
                 {/* Logo Display */}
-                <div className="relative overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-auto min-h-[280px]">
+                <div className="relative overflow-hidden bg-neutral-900 aspect-[4/3] md:aspect-auto md:h-auto min-h-[200px] md:min-h-[280px]">
                   <motion.img
                     src={project.logo}
                     alt={`${project.name} logo`}

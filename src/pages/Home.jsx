@@ -58,9 +58,9 @@ const TechnicalStackManifest = () => {
   ];
 
   return (
-    <section className="relative py-4 px-6 md:px-12 lg:px-24 bg-[#030303] border-t border-b border-white/[0.05]">
+    <section className="relative py-3 md:py-4 px-4 md:px-12 lg:px-24 bg-[#030303] border-t border-b border-white/[0.05]">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-8">
           {stackItems.map((item, index) => (
             <motion.div
               key={item.label}
@@ -70,7 +70,7 @@ const TechnicalStackManifest = () => {
               viewport={{ once: false, amount: 0.3 }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
             >
-              <span className="font-geist-mono text-[11px] text-amber-500/40 tracking-wider">
+              <span className="font-geist-mono text-[9px] md:text-[11px] text-amber-500/40 tracking-wider">
                 [ {item.label}: {item.value} ]
               </span>
             </motion.div>
@@ -500,13 +500,13 @@ const TerminalWidget = () => {
   
   const jsonContent = `{
   "studio": "Nova",
-  "philosophy": "engineered_craftsmanship",
+  "philosophy": "craftsmanship",
   "rejects": [
     "bloat",
-    "generic_templates",
+    "templates",
     "mediocrity"
   ],
-  "builds": "purpose_driven_software",
+  "builds": "purpose_driven",
   "status": "operational"
 }`;
 
@@ -553,15 +553,15 @@ const TerminalWidget = () => {
   const showCursor = phase === 'paused' || phase === 'typing' || phase === 'deleting';
 
   return (
-    <div className="relative bg-[#0d0d0d] border border-[#333] rounded-[4px] overflow-hidden font-mono text-sm">
-      <div className="flex items-center justify-between px-4 py-3 bg-[#1a1a1a] border-b border-[#333]">
+    <div className="relative bg-[#0d0d0d] border border-[#333] rounded-[4px] overflow-hidden font-mono text-xs md:text-sm">
+      <div className="flex items-center justify-between px-3 md:px-4 py-2 md:py-3 bg-[#1a1a1a] border-b border-[#333]">
         <div className="flex items-center gap-2">
           <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+            <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ff5f57]" />
+            <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#febc2e]" />
+            <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#28c840]" />
           </div>
-          <span className="text-stone-500 text-xs ml-2">nova_values.json</span>
+          <span className="text-stone-500 text-[10px] md:text-xs ml-2">nova_values.json</span>
         </div>
         <button
           onClick={handleCopy}
@@ -570,23 +570,23 @@ const TerminalWidget = () => {
           {copied ? (
             <>
               <Check size={12} className="text-emerald-400" />
-              <span className="text-[10px] text-emerald-400">Copied</span>
+              <span className="text-[10px] text-emerald-400 hidden sm:inline">Copied</span>
             </>
           ) : (
             <>
               <Copy size={12} />
-              <span className="text-[10px]">Copy</span>
+              <span className="text-[10px] hidden sm:inline">Copy</span>
             </>
           )}
         </button>
       </div>
       <div className="flex">
         {/* Line Numbers Column */}
-        <div className="py-4 pl-4 pr-3 border-r border-[#333] select-none bg-[#0a0a0a]">
+        <div className="py-3 md:py-4 pl-3 md:pl-4 pr-2 md:pr-3 border-r border-[#333] select-none bg-[#0a0a0a]">
           {lines.map((_, idx) => (
             <div 
               key={idx} 
-              className={`text-right text-[11px] leading-relaxed ${
+              className={`text-right text-[10px] md:text-[11px] leading-relaxed ${
                 idx < displayedLines.length ? 'text-stone-600' : 'text-stone-800'
               }`}
             >
@@ -595,13 +595,13 @@ const TerminalWidget = () => {
           ))}
         </div>
         {/* Code Content */}
-        <div className="p-4 text-green-400/90 whitespace-pre leading-relaxed flex-1 overflow-x-auto">
+        <div className="p-3 md:p-4 text-green-400/90 whitespace-pre leading-relaxed flex-1 overflow-x-auto text-[11px] md:text-sm">
           {displayedText}
           {showCursor && (
             <motion.span
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.5, repeat: Infinity }}
-              className="inline-block w-2 h-4 bg-green-400 ml-0.5"
+              className="inline-block w-1.5 md:w-2 h-3 md:h-4 bg-green-400 ml-0.5"
             />
           )}
         </div>
@@ -659,7 +659,7 @@ const Home = () => {
       {/* ============================================ */}
       {/* CAPABILITIES SECTION - System Blueprint */}
       {/* ============================================ */}
-      <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#080808]">
+      <section className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-[#080808]">
         {/* Data Shards */}
         <DataShards />
 
@@ -669,7 +669,7 @@ const Home = () => {
               <span className="inline-block px-3 py-1.5 mb-5 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-xs text-amber-500 tracking-widest">
                 SYSTEM.CAPABILITIES
               </span>
-              <h2 className="text-4xl md:text-5xl font-space font-light tracking-tight bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-space font-light tracking-tight bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
                 The Blueprint
               </h2>
             </div>
@@ -785,7 +785,7 @@ const Home = () => {
       {/* ============================================ */}
       {/* OUR APPROACH SECTION - Mechanical Pipeline */}
       {/* ============================================ */}
-      <section id="work" className="relative py-24 px-6 md:px-12 lg:px-24 bg-black">
+      <section id="work" className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-black">
         {/* Data Shards */}
         <DataShards />
 
@@ -795,7 +795,7 @@ const Home = () => {
               <span className="inline-block px-3 py-1.5 mb-5 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-xs text-amber-500 tracking-widest">
                 PROCESS.PIPELINE
               </span>
-              <h2 className="text-4xl md:text-5xl font-space font-light tracking-tight bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-space font-light tracking-tight bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
                 Our Approach
               </h2>
             </div>
@@ -858,7 +858,7 @@ const Home = () => {
       {/* ============================================ */}
       {/* WHY NOVA SECTION */}
       {/* ============================================ */}
-      <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-black">
+      <section className="relative py-16 md:py-24 px-4 md:px-12 lg:px-24 bg-black">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
@@ -902,7 +902,7 @@ const Home = () => {
       {/* ============================================ */}
       {/* CLOSING CTA SECTION WITH PARTICLES */}
       {/* ============================================ */}
-      <section id="contact" className="relative py-28 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
+      <section id="contact" className="relative py-20 md:py-28 px-4 md:px-12 lg:px-24 bg-black overflow-hidden">
         {/* Particle Field in Footer */}
         <ParticleField density={30} />
 
@@ -911,7 +911,7 @@ const Home = () => {
             <span className="inline-block px-3 py-1.5 mb-6 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-xs text-amber-500 tracking-widest">
               INIT.PROJECT
             </span>
-            <h2 className="text-4xl md:text-5xl font-space font-light tracking-tight text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-space font-light tracking-tight text-white mb-6">
               Let's Build Together
             </h2>
             <p className="text-lg text-stone-400/70 mb-12 max-w-2xl mx-auto">

@@ -182,20 +182,20 @@ const Contact = () => {
       {/* ============================================ */}
       {/* HERO SECTION */}
       {/* ============================================ */}
-      <section className="relative pt-32 pb-16 px-6 md:px-12 lg:px-24">
+      <section className="relative pt-28 md:pt-32 pb-12 md:pb-16 px-4 md:px-12 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
           <FadeIn>
-            <div className="mb-6">
-              <span className="inline-block px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-xs text-amber-500 tracking-widest">
+            <div className="mb-4 md:mb-6">
+              <span className="inline-block px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-[4px] font-mono text-[10px] md:text-xs text-amber-500 tracking-widest">
                 INIT.CONTACT
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-space font-light tracking-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-space font-light tracking-tight mb-4 md:mb-6">
               <span className="bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
                 Let's Connect
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-stone-400/70 max-w-3xl leading-relaxed font-light">
+            <p className="text-lg md:text-xl lg:text-2xl text-stone-400/70 max-w-3xl leading-relaxed font-light">
               Have a project in mind? Fill out the form below and our team will get back to you shortly.
             </p>
           </FadeIn>
@@ -205,13 +205,13 @@ const Contact = () => {
       {/* ============================================ */}
       {/* CONTACT FORM SECTION */}
       {/* ============================================ */}
-      <section className="relative py-16 px-6 md:px-12 lg:px-24">
+      <section className="relative py-12 md:py-16 px-4 md:px-12 lg:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
             {/* Form - Takes 3 columns */}
             <div className="lg:col-span-3">
               <FadeIn>
-                <div className="relative overflow-hidden rounded-[4px] border border-white/10 bg-[rgba(255,255,255,0.02)] backdrop-blur-[12px] p-8 md:p-10">
+                <div className="relative overflow-hidden rounded-[4px] border border-white/10 bg-[rgba(255,255,255,0.02)] backdrop-blur-[12px] p-5 md:p-8 lg:p-10">
                   {/* Grid overlay */}
                   <div 
                     className="absolute inset-0 opacity-[0.02] pointer-events-none"
@@ -416,7 +416,7 @@ const Contact = () => {
       {/* ============================================ */}
       {/* CTA SECTION */}
       {/* ============================================ */}
-      <section className="relative py-20 px-6 md:px-12 lg:px-24 bg-[#050505]">
+      <section className="relative py-16 md:py-20 px-4 md:px-12 lg:px-24 bg-[#050505]">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <p className="text-stone-400 mb-6">
