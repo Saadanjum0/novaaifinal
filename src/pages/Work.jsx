@@ -1,45 +1,227 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
+import ProjectCard from '../components/ui/project-card';
+
+// Project data
+const projects = [
+  {
+    id: "fleetroute-ca",
+    name: "FleetRoute California",
+    label: "Featured",
+    description:
+      "FleetRoute California delivers data-driven location intelligence for food trucks. Operators pick profitable spots with live foot-traffic overlays, event intel, weather-aware routing, and permit automation.",
+    image: "/projects/fleetroute/mainscreen.png",
+    logo: "/projects/fleetroute/logo.png",
+    technologies: ["React", "TypeScript", "PostGIS", "Google Maps", "Tailwind", "AWS"],
+    gallery: [
+      "/projects/fleetroute/mainscreen.png",
+      "/projects/fleetroute/evennts.png",
+      "/projects/fleetroute/earnigdashboard.png",
+      "/projects/fleetroute/permits.png"
+    ],
+    metrics: [
+      "47% avg revenue lift",
+      "340+ trucks live",
+      "92% permit compliance"
+    ],
+    accentFrom: "from-blue-500/30",
+    accentTo: "to-cyan-400/20"
+  },
+  {
+    id: "hoteldesk-pro",
+    name: "HotelDesk Pro",
+    label: "Desktop",
+    description:
+      "HotelDesk Pro digitizes front-desk operations for 20-150 room hotels: sub-2-minute check-in with ID scan, error-free billing, live room grid, and housekeeping coordination.",
+    image: "/projects/hoteldesk/mainscreen.png",
+    logo: "/projects/hoteldesk/logo.png",
+    technologies: [".NET 6", "WPF", "C#", "SQL Server", "Crystal Reports", "OCR"],
+    gallery: [
+      "/projects/hoteldesk/mainscreen.png",
+      "/projects/hoteldesk/roombooking.png"
+    ],
+    metrics: [
+      "78% faster check-in",
+      "96% fewer billing errors",
+      "$180K avg annual uplift"
+    ],
+    accentFrom: "from-emerald-500/25",
+    accentTo: "to-teal-400/15"
+  },
+  {
+    id: "deutschmedia",
+    name: "DeutschMedia SubtitleSync",
+    label: "AI / Media",
+    description:
+      "AI-powered German subtitle re-timing engine that auto-adjusts durations for German reading speeds, speech pauses, and scene cuts—turning 6+ hours of manual work into under 10 minutes.",
+    image: "/projects/deutschmedia/editor.png",
+    logo: "/projects/deutschmedia/logo.png",
+    technologies: ["Python", "OpenAI Whisper", "Google STT", "React", "WebVTT", "SRT/ASS Parsers"],
+    gallery: [
+      "/projects/deutschmedia/dashboard.png",
+      "/projects/deutschmedia/editor.png"
+    ],
+    metrics: [
+      "6h → 10min timing",
+      "3× translator throughput",
+      "Broadcast-safe output"
+    ],
+    accentFrom: "from-purple-500/25",
+    accentTo: "to-violet-400/15"
+  }
+];
 
 const Work = () => {
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
-      {/* Blurred Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-orange-900/20 blur-3xl"></div>
+    <div className="relative min-h-screen bg-nova-void overflow-hidden">
+      {/* Void Background - deep warm charcoal */}
+      <div className="absolute inset-0 bg-nova-void">
+        {/* Subtle warm amber glow accents */}
+        <div className="absolute top-10 right-32 w-56 sm:w-80 h-56 sm:h-80 bg-nova-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-24 w-48 sm:w-72 h-48 sm:h-72 bg-nova-primary/8 rounded-full blur-3xl"></div>
+      </div>
       
-                  {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6">
-        <div className="text-center space-y-6 sm:space-y-8 max-w-2xl">
-          {/* Coming Soon Badge */}
-          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-orange-500/10 backdrop-blur-md border border-orange-300/30 rounded-full text-xs sm:text-sm mb-6 sm:mb-8">
-            <span className="text-orange-100">Portfolio Loading</span>
+      {/* Content */}
+      <div className="relative z-10 px-4 sm:px-6 lg:px-10 pt-28 md:pt-32 pb-16 max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div 
+          className="mb-12 space-y-3"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nova-glass-bg border border-nova-glass-border text-xs uppercase tracking-[0.12em] text-nova-text-highlight">
+            Featured Work
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold bg-gradient-to-r from-purple-300 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
-            Coming Soon
-          </h1>
-          
-          {/* Description */}
-          <p className="text-lg sm:text-xl md:text-2xl text-orange-100/80 font-light leading-relaxed px-4">
-            Our portfolio is being meticulously crafted. Check back soon to see our work.
-          </p>
-
-          {/* Back Button */}
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-black rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25 mt-6 sm:mt-8"
+          <motion.h1 
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-nova-text-heading"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
           >
-            <ArrowLeft size={20} />
-            Back to Home
-          </Link>
+            Our Work
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg sm:text-xl text-stone-400 max-w-3xl leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            FleetRoute, HotelDesk Pro, and DeutschMedia SubtitleSync are engineered to solve high-stakes operational problems with data-rich, reliable experiences.
+          </motion.p>
+        </motion.div>
+
+        {/* Feature Layouts */}
+        <div className="space-y-16">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              className="group relative overflow-hidden rounded-3xl border border-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] hover:border-orange-500/50 hover:shadow-[0_20px_80px_rgba(217,119,6,0.15)] transition-all duration-300"
+              style={{
+                background: 'radial-gradient(ellipse at top center, rgba(38, 38, 38, 0.5), rgba(10, 10, 10, 1))'
+              }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.1, duration: 0.7, ease: "easeOut" }}
+            >
+              <div className="relative grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-0">
+                {/* Logo Display */}
+                <div className="relative overflow-hidden bg-neutral-900 aspect-square md:aspect-auto md:h-auto min-h-[280px]">
+                  <motion.img
+                    src={project.logo}
+                    alt={`${project.name} logo`}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2 text-xs text-nova-text-heading">
+                    <span className="px-2.5 py-1 rounded-full bg-nova-glass-bg backdrop-blur-sm border border-nova-glass-border">
+                      {project.gallery.length} shots
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-nova-glass-bg backdrop-blur-sm border border-nova-glass-border">
+                      {project.label}
+                    </span>
                   </div>
                 </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-10 right-20 w-56 sm:w-80 h-56 sm:h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-32 left-20 w-48 sm:w-72 h-48 sm:h-72 bg-orange-500/20 rounded-full blur-3xl"></div>
+                {/* Content */}
+                <div className="space-y-3 self-center p-6 sm:p-8 md:py-8 md:px-10 relative z-10">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="px-2.5 py-0.5 rounded-full bg-transparent border border-neutral-700 text-nova-text-highlight font-mono text-xs">{project.label}</span>
+                    <span className="text-nova-text-highlight text-xs">Case Study</span>
+                  </div>
+
+                  <h2 className="text-2xl md:text-3xl font-semibold text-nova-text-heading">{project.name}</h2>
+
+                  <p className="text-sm sm:text-base text-stone-400 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Metrics / Bento row */}
+                  <div className="grid sm:grid-cols-3 gap-2">
+                    {project.metrics.map((metric) => (
+                      <div key={metric} className="rounded-lg border border-nova-glass-border bg-nova-void-light px-2.5 py-2 text-xs text-stone-300">
+                        {metric}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Tech badges */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 text-xs rounded-full bg-transparent border border-neutral-700 text-stone-300 font-mono"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex items-center gap-4 pt-1">
+                    <motion.a
+                      href={`/project/${project.id}`}
+                      className="inline-flex items-center gap-2 text-nova-text-highlight hover:text-nova-primary-light transition-colors underline-offset-4 hover:underline"
+                      whileHover={{ x: 4 }}
+                    >
+                      View Project
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </motion.a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <motion.div 
+          className="text-left mt-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+        >
+          <p className="text-stone-400 mb-4">
+            Have a complex product to bring to life?
+          </p>
+          <motion.a
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-nova-primary hover:bg-nova-primary-dark text-black rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-xl hover:shadow-nova-primary/25"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Let's Talk
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </motion.a>
+        </motion.div>
+      </div>
     </div>
   );
 };

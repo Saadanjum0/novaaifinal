@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         'space': ['Space Grotesk', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
+        'geist-mono': ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -60,18 +61,19 @@ module.exports = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
-        // Nova AI Custom Colors
-        'nova-bg-deep': '#080808',
-        'nova-bg-mid': '#0F0F10',
-        'nova-bg-raised': '#1A1A1C',
-        'nova-text-primary': '#FAFAFA',
-        'nova-text-secondary': '#A0A0A3',
-        'nova-text-tertiary': '#606064',
-        'nova-accent': '#00FFD1',
-        'nova-accent-bright': '#6FD2C0',
-        'nova-success': '#10B981',
-        'nova-glass-bg': 'rgba(255, 255, 255, 0.03)',
-        'nova-glass-border': 'rgba(255, 255, 255, 0.08)',
+        // Nova Theme Design System
+        'nova-primary': '#D97706', // Rich Amber/Orange
+        'nova-primary-dark': '#B45309',
+        'nova-primary-light': '#F59E0B',
+        'nova-void': '#0c0a09', // Deep warm charcoal/brownish-black
+        'nova-void-light': '#1c1917',
+        'nova-surface': 'rgba(12, 10, 9, 0.8)', // Semi-transparent void for glassmorphism
+        'nova-surface-highlight': 'rgba(217, 119, 6, 0.1)', // Amber glow
+        'nova-text-heading': '#FFFFFF', // White headings
+        'nova-text-subtext': '#a8a29e', // Warm grey (stone-400)
+        'nova-text-highlight': '#D97706', // Amber/Gold highlights
+        'nova-glass-bg': 'rgba(12, 10, 9, 0.6)', // Dark semi-transparent for glassmorphism
+        'nova-glass-border': 'rgba(217, 119, 6, 0.2)', // Amber border
       },
       keyframes: {
         'accordion-down': {
@@ -94,6 +96,9 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      perspective: {
+        '1000': '1000px',
       },
     },
   },

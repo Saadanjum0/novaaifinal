@@ -290,7 +290,7 @@ void main(){gl_Position=position;}`;
   return canvasRef;
 };
 
-// Custom Text Loop Component with smooth animations
+// Custom Text Loop Component with smooth animations (white text, bigger bold Nova)
 const AnimatedText = () => {
   const words = ['Intelligence', 'Precision', 'Clarity', 'Nova'];
   const [index, setIndex] = useState(0);
@@ -302,22 +302,27 @@ const AnimatedText = () => {
     return () => clearInterval(interval);
   }, [words.length]);
 
+  const isNova = words[index] === 'Nova';
+
   return (
     <div className="relative inline-block w-full text-center">
+      {/* Reserve height to prevent layout shift */}
+      <span className="invisible block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold">Nova</span>
       <AnimatePresence mode="wait">
-        <motion.div
+        <motion.span
           key={index}
           initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
-          transition={{ 
-            duration: 0.5,
-            ease: [0.4, 0.0, 0.2, 1]
-          }}
-          className="bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent"
+          transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1] }}
+          className={`absolute inset-0 flex items-center justify-center ${
+            isNova
+              ? 'text-white font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+              : 'text-white font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl'
+          }`}
         >
           {words[index]}
-        </motion.div>
+        </motion.span>
       </AnimatePresence>
     </div>
   );
@@ -373,9 +378,9 @@ const Hero = ({
         <div className="text-center space-y-4 md:space-y-6 max-w-5xl mx-auto w-full">
           {/* Main Heading with Animated Text - Centered and Responsive */}
           <div className="space-y-1 md:space-y-2">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+            <h1 className="font-bold leading-tight">
               <AnimatedText />
-              <span className="block mt-2 bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+              <span className="block mt-1 text-5xl sm:text-6xl md:text-8xl lg:text-8xl bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
                 Engineered.
               </span>
             </h1>
@@ -397,16 +402,16 @@ const Hero = ({
             </p>
           </div>
           
-          {/* CTA Buttons with Moving Border */}
+          {/* CTA Buttons with Moving Border (hidden on mobile) */}
           {buttons && (
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 md:mt-10 px-4">
+            <div className="hidden sm:flex gap-4 justify-center mt-10 px-4">
               {buttons.primary && (
                 <MovingBorderButton
                   as="button"
                   onClick={buttons.primary.onClick}
                   borderRadius="2rem"
                   duration={3000}
-                  containerClassName="w-full sm:w-auto"
+                  containerClassName="w-auto"
                   borderClassName="bg-[radial-gradient(var(--orange-500)_40%,transparent_60%)]"
                   className="bg-black/90 border-orange-400/20 backdrop-blur-xl text-white px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg"
                 >
@@ -421,7 +426,7 @@ const Hero = ({
                   onClick={buttons.secondary.onClick}
                   borderRadius="2rem"
                   duration={3500}
-                  containerClassName="w-full sm:w-auto"
+                  containerClassName="w-auto"
                   borderClassName="bg-[radial-gradient(var(--yellow-500)_40%,transparent_60%)]"
                   className="bg-black/70 border-orange-400/20 backdrop-blur-xl text-orange-100 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg"
                 >
@@ -433,8 +438,7 @@ const Hero = ({
         </div>
       </div>
 
-      {/* Simple Scroll Indicator */}
-      <ScrollIndicator />
+      {/* Scroll indicator removed */}
     </div>
   );
 };

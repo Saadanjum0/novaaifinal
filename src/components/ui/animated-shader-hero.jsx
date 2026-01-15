@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button as MovingBorderButton } from './moving-border';
 import { ChevronDown } from 'lucide-react';
 
 // Reusable Shader Background Hook
@@ -290,9 +289,9 @@ void main(){gl_Position=position;}`;
   return canvasRef;
 };
 
-// Custom Text Loop Component with smooth animations
+// Custom Text Loop Component with smooth animations - Fixed container to prevent layout shift
 const AnimatedText = () => {
-  const words = ['Intelligence', 'Precision', 'Clarity', 'Nova'];
+  const words = ['Precision', 'Intelligence', 'Clarity', 'Nova'];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -305,9 +304,13 @@ const AnimatedText = () => {
   const isNova = words[index] === 'Nova';
 
   return (
-    <div className="relative inline-block w-full text-center">
-      {/* Invisible placeholder reserves max height to prevent layout shift */}
-      <span className="invisible block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold">Nova</span>
+    <div 
+      className="relative inline-flex items-center justify-center w-full"
+      style={{ 
+        minHeight: 'clamp(60px, 12vw, 120px)', 
+        minWidth: '280px'
+      }}
+    >
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
@@ -315,7 +318,7 @@ const AnimatedText = () => {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
           transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1] }}
-          className={`absolute inset-0 flex items-center justify-center ${
+          className={`absolute whitespace-nowrap ${
             isNova
               ? 'text-white font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
               : 'text-white font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl'
@@ -373,6 +376,14 @@ const Hero = ({
         style={{ background: 'black' }}
       />
       
+      {/* Dark gradient overlay for improved legibility */}
+      <div 
+        className="absolute inset-0 z-[5] pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.7) 100%)'
+        }}
+      />
+      
       {/* Hero Content Overlay */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white px-4">
         <div className="text-center space-y-4 md:space-y-6 max-w-5xl mx-auto w-full">
@@ -402,36 +413,36 @@ const Hero = ({
             </p>
           </div>
           
-          {/* CTA Buttons with Moving Border (hidden on mobile) */}
+          {/* CTA Buttons (hidden on mobile) */}
           {buttons && (
             <div className="hidden sm:flex gap-4 justify-center mt-10 px-4">
               {buttons.primary && (
-                <MovingBorderButton
-                  as="button"
+                <motion.button
                   onClick={buttons.primary.onClick}
-                  borderRadius="2rem"
-                  duration={3000}
-                  containerClassName="w-auto"
-                  borderClassName="bg-[radial-gradient(var(--orange-500)_40%,transparent_60%)]"
-                  className="bg-black/90 border-orange-400/20 backdrop-blur-xl text-white px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg"
+                  className="bg-nova-primary hover:bg-nova-primary-dark text-black px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg rounded-[4px] transition-all duration-300"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -5,
+                    boxShadow: '0 10px 40px rgba(251, 191, 36, 0.4)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
-                    {buttons.primary.text}
-                  </span>
-                </MovingBorderButton>
+                  {buttons.primary.text}
+                </motion.button>
               )}
               {buttons.secondary && (
-                <MovingBorderButton
-                  as="button"
+                <motion.button
                   onClick={buttons.secondary.onClick}
-                  borderRadius="2rem"
-                  duration={3500}
-                  containerClassName="w-auto"
-                  borderClassName="bg-[radial-gradient(var(--yellow-500)_40%,transparent_60%)]"
-                  className="bg-black/70 border-orange-400/20 backdrop-blur-xl text-orange-100 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg"
+                  className="bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg rounded-[4px] hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -5,
+                    boxShadow: '0 10px 40px rgba(251, 191, 36, 0.25)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {buttons.secondary.text}
-                </MovingBorderButton>
+                </motion.button>
               )}
             </div>
           )}
