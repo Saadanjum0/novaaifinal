@@ -85,32 +85,50 @@ const Work = () => {
       <div className="relative z-10 px-4 sm:px-6 lg:px-10 pt-28 md:pt-32 pb-16 max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="mb-12 space-y-3"
+          className="mb-16 space-y-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nova-glass-bg border border-nova-glass-border text-xs uppercase tracking-[0.12em] text-nova-text-highlight">
-            Featured Work
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[4px] bg-amber-500/10 border border-amber-500/20 text-xs uppercase tracking-[0.15em] text-amber-500 font-mono">
+            PORTFOLIO.SHOWCASE
           </div>
 
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-nova-text-heading"
+            className="text-4xl sm:text-5xl md:text-6xl font-space font-light tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Our Work
+            <span className="bg-gradient-to-r from-white via-stone-300 to-stone-500 bg-clip-text text-transparent">
+              Our Work
+            </span>
           </motion.h1>
           
-          <motion.p 
-            className="text-lg sm:text-xl text-stone-400 max-w-3xl leading-relaxed"
+          <motion.div
+            className="max-w-3xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            FleetRoute, HotelDesk Pro, and DeutschMedia SubtitleSync are engineered to solve high-stakes operational problems with data-rich, reliable experiences.
-          </motion.p>
+            <p className="text-xl md:text-2xl text-stone-300 leading-relaxed mb-4">
+              A glimpse into some of our <span className="text-amber-400 font-medium">masterpieces</span>—hand-picked from dozens of successful projects we've delivered.
+            </p>
+            <p className="text-base text-stone-500 leading-relaxed">
+              What you see here is just the tip of the iceberg. From stealth startups to enterprise clients, we've built solutions across industries—these are the ones we can <span className="text-stone-400">share publicly</span>.
+            </p>
+          </motion.div>
+
+          {/* Decorative line */}
+          <motion.div 
+            className="flex items-center gap-4 pt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <div className="h-[1px] w-16 bg-gradient-to-r from-amber-500/50 to-transparent"></div>
+            <span className="font-mono text-[10px] text-stone-600 tracking-widest">FEATURED • {projects.length} OF 24+ PROJECTS</span>
+          </motion.div>
         </motion.div>
 
         {/* Feature Layouts */}
